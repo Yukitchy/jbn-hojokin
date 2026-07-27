@@ -18,16 +18,16 @@ section{padding:84px 0}
 .hero{
   background:#F1F7F3;color:#172A24;padding:0;position:relative;overflow:hidden;
 }
-.hero .wrap{padding-top:96px;padding-bottom:96px;position:relative;z-index:1}
+.hero .wrap{padding-top:88px;padding-bottom:88px;position:relative;z-index:1;text-align:center}
 .hero::before{content:"";position:absolute;top:-160px;right:-140px;width:460px;height:460px;
   border-radius:50%;background:radial-gradient(circle,rgba(95,211,168,.28),transparent 70%)}
 .hero::after{content:"";position:absolute;bottom:-180px;left:-120px;width:400px;height:400px;
   border-radius:50%;background:radial-gradient(circle,rgba(224,99,47,.22),transparent 70%)}
 .hero h1{font-size:clamp(28px,5.6vw,54px);line-height:1.35;margin:18px 0 22px}
-.hero p.sub{font-size:clamp(15px,2vw,19px);color:#5E7169;max-width:44ch}
-.brand{display:flex;align-items:center;gap:10px;font-family:"M PLUS Rounded 1c",sans-serif;font-weight:800;font-size:19px}
+.hero p.sub{font-size:clamp(15px,2vw,19px);color:#5E7169;max-width:44ch;margin:0 auto}
+.brand{display:flex;align-items:center;justify-content:center;gap:10px;font-family:"M PLUS Rounded 1c",sans-serif;font-weight:800;font-size:19px}
 .brand .mk{width:34px;height:34px;flex:0 0 34px}
-.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px;align-items:center}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px;align-items:center;justify-content:center}
 .hero .btn.ghost{color:#172A24;border-color:#0E7C5C}
 .cards{display:grid;gap:18px;grid-template-columns:repeat(3,1fr)}
 .cards.two{grid-template-columns:1fr 1fr}
@@ -77,8 +77,8 @@ details p{font-size:15.5px;color:var(--sub)}
 .who img{flex:0 0 108px;width:108px}
 /* いらすとや素材 */
 img.ill{display:block;max-width:100%;height:auto}
-.hero-grid{display:grid;grid-template-columns:1fr auto;gap:44px;align-items:center}
-.hero-ill{width:min(330px,38vw)}
+.hero-grid{display:grid;grid-template-columns:1fr;justify-items:center;gap:8px}
+.hero-ill{width:min(340px,72vw);margin:30px auto 0}
 .ill-row{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;margin:0 0 34px}
 .ill-row img{width:170px}
 .c .ill{width:150px;margin:0 auto 16px}
@@ -92,7 +92,7 @@ footer{background:#F1F7F3;color:#7C8F86;padding:40px 0;font-size:13.5px;text-ali
   .step{grid-template-columns:58px 1fr;gap:14px;padding:22px}
   .step .n{width:58px;height:58px;font-size:24px}
   .step .si{display:none}
-  .hero-ill{width:230px;margin-top:26px}
+  .hero-ill{width:min(240px,64vw);margin:24px auto 0}
   .ill-row img{width:120px}
   .who .c{flex-direction:column;align-items:center;text-align:center}
 }
