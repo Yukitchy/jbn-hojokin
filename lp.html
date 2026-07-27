@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>じぶんで補助金｜民泊オーナーのための補助金ばんそうサービス</title>
+<meta name="description" content="行政書士さんに頼まなくても、補助金は通せます。民泊ホストのための、設備投資と補助金申請の伴走サービス。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=M+PLUS+Rounded+1c:wght@400;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+body{font-size:17px}
+section{padding:84px 0}
+.sec-t{font-size:clamp(24px,4.2vw,38px);text-align:center;margin-bottom:14px}
+.sec-lead{text-align:center;color:var(--sub);max-width:56ch;margin:0 auto 44px;font-size:16px}
+.hero{
+  background:#F1F7F3;color:#172A24;padding:0;position:relative;overflow:hidden;
+}
+.hero .wrap{padding-top:96px;padding-bottom:96px;position:relative;z-index:1}
+.hero::before{content:"";position:absolute;top:-160px;right:-140px;width:460px;height:460px;
+  border-radius:50%;background:radial-gradient(circle,rgba(95,211,168,.28),transparent 70%)}
+.hero::after{content:"";position:absolute;bottom:-180px;left:-120px;width:400px;height:400px;
+  border-radius:50%;background:radial-gradient(circle,rgba(224,99,47,.22),transparent 70%)}
+.hero h1{font-size:clamp(28px,5.6vw,54px);line-height:1.35;margin:18px 0 22px}
+.hero p.sub{font-size:clamp(15px,2vw,19px);color:#5E7169;max-width:44ch}
+.brand{display:flex;align-items:center;gap:10px;font-family:"M PLUS Rounded 1c",sans-serif;font-weight:800;font-size:19px}
+.brand .mk{width:34px;height:34px;flex:0 0 34px}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px;align-items:center}
+.hero .btn.ghost{color:#172A24;border-color:#0E7C5C}
+.cards{display:grid;gap:18px;grid-template-columns:repeat(3,1fr)}
+.cards.two{grid-template-columns:1fr 1fr}
+.c{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px;
+  box-shadow:0 1px 2px rgba(20,60,60,.05),0 10px 28px rgba(20,60,60,.06);
+  transition:transform .16s var(--ease-out),box-shadow .16s ease}
+.c:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(20,60,60,.12)}
+.c h3{font-size:19px;margin-bottom:10px}
+.c p{font-size:15.5px;color:var(--sub);line-height:1.85}
+.tint{background:color-mix(in srgb,var(--accent) 7%,var(--bg))}
+.dark{background:#F1F7F3;color:#172A24}
+.dark .sec-lead{color:#5E7169}
+.dark .c{background:#FFFFFF;border-color:#DEE9E3}
+.dark .c p{color:#5E7169}
+.voice{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:820px;margin:0 auto}
+.voice .chip{background:#fff;border:1px solid var(--line);border-radius:999px;
+  padding:11px 20px;font-size:15px;box-shadow:0 2px 8px rgba(20,60,60,.05)}
+.step{display:grid;grid-template-columns:74px 1fr;gap:20px;align-items:start;
+  background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;margin-bottom:16px}
+.step .n{width:74px;height:74px;border-radius:50%;background:var(--accent);color:#fff;
+  display:grid;place-items:center;font-family:"Lilita One",sans-serif;font-size:30px}
+.step h3{font-size:21px;margin-bottom:8px}
+.step p{font-size:15.5px;color:var(--sub)}
+.price{display:grid;gap:18px;grid-template-columns:repeat(3,1fr);align-items:start}
+.p{background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px 26px;text-align:center}
+.p.best{border:2px solid var(--accent-2);box-shadow:0 14px 40px rgba(224,99,47,.16);position:relative}
+.p.best::before{content:"いちばん選ばれます";position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  background:var(--accent-2);color:#fff;font-size:12px;font-weight:800;padding:5px 16px;border-radius:999px;
+  font-family:"M PLUS Rounded 1c",sans-serif;white-space:nowrap}
+.p .amt{font-family:"Lilita One",sans-serif;font-size:42px;color:var(--accent);line-height:1.1;margin:12px 0}
+.p.best .amt{color:var(--accent-2)}
+.p .amt small{font-family:"M PLUS Rounded 1c",sans-serif;font-size:15px;font-weight:800}
+.p ul{list-style:none;text-align:left;margin-top:18px;font-size:14.5px;color:var(--sub)}
+.p li{padding:7px 0 7px 24px;position:relative}
+.p li::before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:800}
+.honest{background:#fff;border:1px solid var(--line);border-left:5px solid var(--accent-2);
+  border-radius:0 16px 16px 0;padding:26px 28px;max-width:760px;margin:0 auto}
+.honest li{margin-left:20px;font-size:15.5px;color:var(--sub);padding:5px 0}
+details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:12px}
+details summary{cursor:pointer;font-family:"M PLUS Rounded 1c",sans-serif;font-weight:800;font-size:16.5px;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"Q  ";color:var(--accent);font-family:"Lilita One",sans-serif}
+details[open] summary{margin-bottom:12px}
+details p{font-size:15.5px;color:var(--sub)}
+.who{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.who .c{display:flex;gap:18px;align-items:flex-start}
+.who img{flex:0 0 108px;width:108px}
+/* いらすとや素材 */
+img.ill{display:block;max-width:100%;height:auto}
+.hero-grid{display:grid;grid-template-columns:1fr auto;gap:44px;align-items:center}
+.hero-ill{width:min(330px,38vw)}
+.ill-row{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;margin:0 0 34px}
+.ill-row img{width:170px}
+.c .ill{width:150px;margin:0 auto 16px}
+.sec-ill{width:190px;margin:0 auto 22px}
+.step{grid-template-columns:74px 1fr 148px}
+.step .si{width:148px;align-self:center}
+footer{background:#F1F7F3;color:#7C8F86;padding:40px 0;font-size:13.5px;text-align:center}
+@media(max-width:820px){
+  .cards,.cards.two,.price,.who,.hero-grid{grid-template-columns:1fr}
+  section{padding:64px 0}
+  .step{grid-template-columns:58px 1fr;gap:14px;padding:22px}
+  .step .n{width:58px;height:58px;font-size:24px}
+  .step .si{display:none}
+  .hero-ill{width:230px;margin-top:26px}
+  .ill-row img{width:120px}
+  .who .c{flex-direction:column;align-items:center;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="brand">
+      <svg class="mk" viewBox="0 0 40 40" aria-hidden="true">
+        <path d="M20 4 4 17v19h32V17L20 4z" fill="#0E7C5C"/>
+        <rect x="15" y="24" width="10" height="12" rx="1.5" fill="#F1F7F3"/>
+        <circle cx="20" cy="16" r="4.6" fill="#F1F7F3"/>
+        <path d="M20 12.6v6.8M17 16h6" stroke="#0E7C5C" stroke-width="1.7" stroke-linecap="round"/>
+      </svg>
+      じぶんで補助金
+    </div>
+    <div class="hero-grid">
+    <div>
+    <h1>行政書士さんに<br>頼まなくても、<br><span style="color:#0E7C5C">補助金は通せます。</span></h1>
+    <p class="sub">
+      民泊のオーナーさん向けに、<br>
+      「何を直すか」から「申請書の書き方」まで、<br>
+      となりで一緒に進めるサービスです。
+    </p>
+    <div class="cta-row">
+      <a class="btn" href="#contact">まずは15分、無料で相談する</a>
+      <a class="btn ghost" href="#flow">どんな流れ？</a>
+    </div>
+    <p style="margin-top:26px;font-size:13.5px;color:#7C8F86">
+      ※ パソコンが苦手でも大丈夫です。お電話とお手紙でも進められます。
+    </p>
+    </div>
+    <img class="ill hero-ill" src="img/homestay_BandB_minpaku_seiyou.png" alt="民泊のイラスト">
+    </div>
+  </div>
+</header>
+
+<!-- 共感 -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow" style="text-align:center">こんなこと、ありませんか</p>
+    <h2 class="sec-t">直したいところ、<br>あるのに後回しになっていませんか。</h2>
+    <div class="ill-row" style="margin-top:34px">
+      <img class="ill" src="img/ofuro_shower_yowai.png" alt="シャワーの水圧が弱いイラスト">
+      <img class="ill" src="img/hospital_gyouretsu.png" alt="順番待ちの行列のイラスト">
+      <img class="ill" src="img/pc_kowai_obaasan.png" alt="パソコンが苦手な人のイラスト">
+    </div>
+    <div class="voice">
+      <span class="chip reveal">お風呂がひとつで、待ち時間が長い</span>
+      <span class="chip reveal">エアコンが古くて夏のレビューが下がる</span>
+      <span class="chip reveal">Wi-Fiが遅いと書かれた</span>
+      <span class="chip reveal">大人数を受けたいけど設備が足りない</span>
+      <span class="chip reveal">お布団や家具を新しくしたい</span>
+      <span class="chip reveal">看板・写真・サイトを作り直したい</span>
+      <span class="chip reveal">スマートロックを入れたい</span>
+      <span class="chip reveal">全部やると、お金が足りない</span>
+    </div>
+    <p class="sec-lead" style="margin-top:38px;font-size:17px;color:var(--ink)">
+      その工事や買い物、<b class="u">国の補助金で半分以上まかなえるかもしれません。</b>
+    </p>
+  </div>
+</section>
+
+<!-- 誤解 -->
+<section class="tint">
+  <div class="wrap">
+    <p class="eyebrow" style="text-align:center">よくある3つの思いこみ</p>
+    <h2 class="sec-t">「うちは対象外」。<br>ほとんどの場合、ちがいます。</h2>
+    <div class="cards">
+      <div class="c reveal">
+        <img class="ill" src="img/homestay_japan.png" alt="ホームステイのイラスト">
+        <h3>❌ 民泊は対象にならない？</h3>
+        <p>いいえ。開業届を出して、きちんと確定申告をしている小さな事業者であれば、民泊も対象になりえます。法人でなくても、個人のままで申請できます。</p>
+      </div>
+      <div class="c reveal">
+        <img class="ill" src="img/zei_shinkoku.png" alt="申告書を書いている人のイラスト">
+        <h3>❌ 難しい書類がたくさん？</h3>
+        <p>書く紙は、じつは2枚が中心です。「うちのお店はこういうお店です」と「今回こういうことをします」。文章の上手さより、<b>順番</b>が大事なだけです。</p>
+      </div>
+      <div class="c reveal">
+        <img class="ill" src="img/clipborad_woman.png" alt="書類に書き込む人のイラスト">
+        <h3>❌ 資格がないと無理？</h3>
+        <p>資格は要りません。ご自身で申請できます。行政書士さんに頼むと通りやすくはなりますが、受け取った補助金の1〜2割が手数料になります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 本質 -->
+<section class="dark">
+  <div class="wrap" style="text-align:center">
+    <p class="eyebrow">いちばん大事なところ</p>
+    <img class="ill sec-ill" src="img/businesswoman2_idea.png" alt="ひらめいた人のイラスト" style="margin-top:16px">
+
+    <h2 class="sec-t" style="color:#172A24">むずかしいのは、書類じゃない。<br><span style="color:#0E7C5C">「何に使うか」を決めることです。</span></h2>
+    <p class="sec-lead" style="color:#5E7169">
+      補助金の相談窓口は「書き方」を教えてくれます。<br>
+      でも「あなたの宿は、次にどこへお金を入れるべきか」は教えてくれません。<br>
+      そこを、<b style="color:#172A24">現役の民泊ホストの目</b>で一緒に決めるのが、私たちの仕事です。
+    </p>
+  </div>
+</section>
+
+<!-- 流れ -->
+<section id="flow">
+  <div class="wrap">
+    <p class="eyebrow" style="text-align:center">サービスの流れ</p>
+    <h2 class="sec-t">やることは、3つだけ。</h2>
+    <p class="sec-lead">難しい言葉は使いません。分からないところは何度でも聞いてください。</p>
+    <div class="step reveal">
+      <div class="n">1</div>
+      <div>
+        <h3>物件を見せてください（診断）</h3>
+        <p>お部屋の写真、これまでのレビュー、予約の埋まり具合を見せていただきます。そこから「いま、いちばん売上をおさえている場所」を一緒にさがします。ここは現役ホストの得意分野です。</p>
+      </div>
+      <img class="ill si" src="img/monitor_blank_sagyouin_man.png" alt="物件を確認する人のイラスト">
+    </div>
+    <div class="step reveal">
+      <div class="n">2</div>
+      <div>
+        <h3>投資プランを一緒に決めます</h3>
+        <p>「これを直すと、どのお客さんが増えて、いくら売上が変わるか」を数字にします。そのうえで、補助金の考え方に合う形へ整えます。工事の見積は2社以上から取っていただきます。</p>
+      </div>
+      <img class="ill si" src="img/dentaku_businesswoman.png" alt="電卓で試算する人のイラスト">
+    </div>
+    <div class="step reveal">
+      <div class="n">3</div>
+      <div>
+        <h3>申請まで、となりで伴走します</h3>
+        <p>記入例つきのテンプレートをお渡しします。書けたものを読んで「ここは伝わりにくい」と意見をお返しします。商工会議所とのやり取りや、見落としがちな締切もこちらで管理します。</p>
+      </div>
+      <img class="ill si" src="img/nininsankyaku_business.png" alt="二人三脚のイラスト">
+    </div>
+    <p style="margin-top:24px;text-align:center;font-size:15px;color:var(--sub)">
+      申請書に文字を書くのは、<b>オーナーさんご自身</b>です。<br>私たちはとなりに座って、道順を示す係です。
+    </p>
+  </div>
+</section>
+
+<!-- 料金 -->
+<section class="tint">
+  <div class="wrap">
+    <p class="eyebrow" style="text-align:center">料金</p>
+    <img class="ill sec-ill" src="img/family_syunyu.png" alt="お金が戻ってきて喜ぶ家族のイラスト">
+    <h2 class="sec-t">成功報酬は、いただきません。</h2>
+    <p class="sec-lead">「通ったら◯%」という取り方はしません。最初にお伝えした金額だけです。</p>
+    <div class="price">
+      <div class="p reveal">
+        <p class="eyebrow">じぶんで やってみる</p>
+        <h3>セルフ教材</h3>
+        <div class="amt">29,800<small>円</small></div>
+        <ul>
+          <li>記入例つきテンプレート一式</li>
+          <li>動画でみる手順書</li>
+          <li>やることチェックリスト</li>
+          <li>制度が変わったら更新版をお届け</li>
+        </ul>
+      </div>
+      <div class="p reveal">
+        <p class="eyebrow">まず みてほしい</p>
+        <h3>物件診断だけ</h3>
+        <div class="amt">19,800<small>円</small></div>
+        <ul>
+          <li>お部屋とレビューの診断</li>
+          <li>投資すべき場所のご提案</li>
+          <li>補助金の当てはめ方レポート</li>
+          <li>申請しない判断でもOK</li>
+        </ul>
+      </div>
+      <div class="p best reveal">
+        <p class="eyebrow" style="color:var(--accent-2)">さいごまで いっしょに</p>
+        <h3>申請ばんそう</h3>
+        <div class="amt">98,000<small>円</small></div>
+        <ul>
+          <li>診断・投資プランこみ</li>
+          <li>テンプレート＋書いたものへの意見</li>
+          <li>締切と段取りの管理</li>
+          <li>商工会議所との進め方のご案内</li>
+          <li><b>もし通らなかったら、次回の伴走は無料</b></li>
+        </ul>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:24px;font-size:14.5px;color:var(--sub)">
+      行政書士さんへ依頼した場合の相場は、着手金5万円＋成功報酬10%前後（補助金100万円なら合計15万円ほど）です。
+    </p>
+  </div>
+</section>
+
+<!-- できないこと -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow" style="text-align:center">正直にお伝えします</p>
+    <h2 class="sec-t">できないこと</h2>
+    <p class="sec-lead">あとから「聞いてない」が起きないように、先に書いておきます。</p>
+    <div class="honest">
+      <ul>
+        <li><b>申請書を代わりに書くことはできません。</b>役所に出す書類を、報酬をいただいて代わりに作ることは行政書士さんのお仕事です。私たちは書き方をお伝えし、書いたものに意見をお返しします。</li>
+        <li><b>採択（合格）の保証はできません。</b>審査をするのは国です。誰が書いても落ちることはあります。</li>
+        <li><b>補助金は後払いです。</b>工事代金はいったん全額をご自身でお支払いいただきます。ここは必ずご確認ください。</li>
+        <li><b>交付決定の前に工事を発注すると、対象外になります。</b>「早く直したい」気持ちが一番の落とし穴です。順番だけは守っていただきます。</li>
+        <li><b>制度の解釈を断定することはできません。</b>迷う論点は商工会議所か行政書士さんへおつなぎします。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 誰が -->
+<section class="tint">
+  <div class="wrap">
+    <p class="eyebrow" style="text-align:center">わたしたちについて</p>
+    <h2 class="sec-t">補助金の専門家では、ありません。<br>民泊の当事者です。</h2>
+    <div class="who">
+      <div class="c reveal">
+        <img class="ill" src="img/homestay_foreign.png" alt="民泊ホストのイラスト">
+        <div>
+          <h3>かすみ</h3>
+          <p>熊本県で民泊を運営するホスト。始めた翌年に熊本地震が直撃し、そこから宿を立て直しました。助成金を使った事業の経験があり、民泊観光協会（JAMTA）の運営にも関わっています。<b>制度と現場の両方を知っている数少ないホスト</b>です。</p>
+        </div>
+      </div>
+      <div class="c reveal">
+        <img class="ill" src="img/tv_housou_sakka.png" alt="ラジオ番組をつくる人のイラスト">
+        <div>
+          <h3>ユウキ</h3>
+          <p>民泊オーナー向けPodcast「ゼロからの民泊ガイドラジオ」のパーソナリティ。140回以上の配信で、全国のホストの困りごとを聞いてきました。<b>難しい言葉を、分かる言葉に直すのが仕事</b>です。資料もテンプレートも自分で作ります。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="wrap" style="max-width:780px">
+    <p class="eyebrow" style="text-align:center">よくあるご質問</p>
+    <img class="ill sec-ill" src="img/question_head_girl.png" alt="疑問をうかべた人のイラスト">
+    <h2 class="sec-t">気になるところ</h2>
+    <div style="margin-top:34px">
+      <details><summary>パソコンがほとんど使えません。それでも大丈夫ですか？</summary>
+        <p>大丈夫です。ただし申請は国のサイト（jGrants）からの電子申請で、GビズIDプライムというIDが必要です。その取得の手順も、画面を一緒に見ながらご案内します。どうしても難しい場合はご家族に操作をお願いする形でも進められます。</p></details>
+      <details><summary>商工会議所に相談すれば無料ですよね？</summary>
+        <p>はい、無料です。ぜひ使ってください。私たちも「まず商工会議所へ」とご案内します。ただ商工会議所が教えてくれるのは書類の書き方で、「あなたの宿は次にどこへ投資すべきか」までは踏み込みません。そこが私たちの担当です。</p></details>
+      <details><summary>いくらもらえますか？</summary>
+        <p>制度や年によって変わります。小規模事業者持続化補助金の場合、使った経費の3分の2（赤字の場合は4分の3）が戻り、上限は50万円。インボイス特例が使えると100万円、賃上げの条件を満たすと200万円まで伸びます。最新の公募要領を一緒に確認します。</p></details>
+      <details><summary>お金は先に必要ですか？</summary>
+        <p>はい。補助金は「あとから戻ってくる」お金です。工事代金はいったん全額をお支払いいただきます。ここを知らずに進めると資金繰りで詰まるので、最初に必ず確認します。</p></details>
+      <details><summary>落ちたらどうなりますか？</summary>
+        <p>「申請ばんそう」プランでは、次の回の伴走を無料でお引き受けします。落ちた理由を一緒に読み解いて、書き直して再挑戦します。持続化補助金は年に複数回の公募があります。</p></details>
+      <details><summary>熊本以外でも受けられますか？</summary>
+        <p>受けられます。やり取りはオンラインと電話が中心です。物件の診断は写真とレビューをお送りいただければ可能です。ただし商工会議所は地元の窓口をご利用いただきます。</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="dark" id="contact">
+  <div class="wrap" style="text-align:center">
+    <p class="eyebrow">まずは、話すところから</p>
+    <img class="ill sec-ill" src="img/soudan_madoguchi.png" alt="相談窓口のイラスト" style="margin-top:16px">
+    <h2 class="sec-t" style="color:#172A24">15分だけ、<br>お話を聞かせてください。</h2>
+    <p class="sec-lead" style="color:#5E7169">
+      「うちの場合はどうだろう？」を聞くだけで大丈夫です。<br>
+      その場で売り込むことはしません。対象にならなそうなら、正直にそうお伝えします。
+    </p>
+    <a class="btn" href="#" style="font-size:19px;padding:19px 44px">無料相談を申し込む</a>
+    <p style="margin-top:18px;font-size:13.5px;color:#7C8F86">※ 申込フォームは準備中です</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    じぶんで補助金 — 民泊オーナーのための補助金ばんそうサービス<br>
+    <span style="font-size:12.5px">イラスト: <a href="https://www.irasutoya.com/" style="color:#0E7C5C">いらすとや</a>／補助金の制度内容・金額は年度によって変わります。最終的な判断は各補助金の公募要領および商工会議所・行政書士等の専門家にご確認ください。</span>
+  </div>
+</footer>
+
+</body>
+</html>

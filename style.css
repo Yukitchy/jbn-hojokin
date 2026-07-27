@@ -1,0 +1,53 @@
+/* ===== 共通スタイル : 民泊補助金伴走サービス ===== */
+:root{
+  color-scheme:light only;   /* ブラウザの強制ダークを無効化 */
+  --accent:#0E7C5C;      /* 阿蘇の緑＝補助金・信頼 */
+  --accent-d:#0A5C45;
+  --accent-2:#E0632F;    /* 火の国の朱＝行動・強調 */
+  --gold:#FFD9A0;
+  --ink:#1B2E28;
+  --sub:#5E7169;
+  --line:#E6EAE4;
+  --bg:#FFFFFF;
+  --card:#FFFFFF;
+  --ease-out:cubic-bezier(.22,1,.36,1);
+  --spring:cubic-bezier(.34,1.56,.64,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:"Noto Sans JP",-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+  line-height:1.9;-webkit-font-smoothing:antialiased;
+}
+/* 日本語の改行崩れ対策（全要素に効かせる） */
+body,p,li,td,th,div,span,b,small,summary,button,a,h1,h2,h3,h4,dt,dd{
+  word-break:auto-phrase;line-break:strict;overflow-wrap:anywhere;
+}
+h1,h2,h3,h4,.btn,.chip,.pill,.tag,.eyebrow,.kicker,.lead,.note,.badge{text-wrap:balance}
+p,li{text-wrap:pretty}
+h1,h2,h3,h4{
+  font-family:"M PLUS Rounded 1c","Hiragino Maru Gothic ProN",sans-serif;
+  font-weight:800;line-height:1.4;letter-spacing:.01em;
+}
+.num,.big{font-family:"Lilita One","M PLUS Rounded 1c",sans-serif;font-variant-numeric:tabular-nums;letter-spacing:.02em}
+a{color:inherit}
+.wrap{max-width:980px;margin:0 auto;padding:0 22px}
+.eyebrow{letter-spacing:.16em;font-size:11px;font-weight:800;color:var(--accent);
+  font-family:"M PLUS Rounded 1c",sans-serif}
+.u{background:linear-gradient(transparent 62%,var(--gold) 62%);padding:0 3px}
+.scroll-x{overflow-x:auto}
+.btn{
+  display:inline-block;background:var(--accent-2);color:#fff;text-decoration:none;
+  font-family:"M PLUS Rounded 1c",sans-serif;font-weight:800;
+  padding:16px 34px;border-radius:999px;border:none;cursor:pointer;font-size:17px;
+  box-shadow:0 2px 6px rgba(20,60,60,.12),0 10px 24px rgba(224,99,47,.24);
+  transition:transform .12s var(--spring),box-shadow .12s ease;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(224,99,47,.32)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn.ghost{background:transparent;color:var(--accent);border:2px solid var(--accent);box-shadow:none}
+:focus-visible{outline:2px solid var(--accent-2);outline-offset:3px}
+.reveal{animation:rv linear both;animation-timeline:view();animation-range:entry 8% cover 32%}
+@keyframes rv{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@supports not (animation-timeline:view()){.reveal{animation:none;opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
