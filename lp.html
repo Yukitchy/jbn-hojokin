@@ -42,9 +42,11 @@ section{padding:84px 0}
 .dark .sec-lead{color:#5E7169}
 .dark .c{background:#FFFFFF;border-color:#DEE9E3}
 .dark .c p{color:#5E7169}
-.voice{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:820px;margin:0 auto}
-.voice .chip{background:#fff;border:1px solid var(--line);border-radius:999px;
-  padding:11px 20px;font-size:15px;box-shadow:0 2px 8px rgba(20,60,60,.05)}
+.voice{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:880px;margin:0 auto}
+.voice .chip{background:#fff;border:1px solid var(--line);border-radius:14px;
+  padding:14px 16px;font-size:14.5px;line-height:1.6;text-align:left;
+  box-shadow:0 2px 8px rgba(20,60,60,.05);display:flex;align-items:center;gap:9px}
+.voice .chip::before{content:"";flex:0 0 7px;height:7px;border-radius:50%;background:var(--accent-2)}
 .step{display:grid;grid-template-columns:74px 1fr;gap:20px;align-items:start;
   background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;margin-bottom:16px}
 .step .n{width:74px;height:74px;border-radius:50%;background:var(--accent);color:#fff;
@@ -87,14 +89,36 @@ img.ill{display:block;max-width:100%;height:auto}
 .step .si{width:148px;align-self:center}
 footer{background:#F1F7F3;color:#7C8F86;padding:40px 0;font-size:13.5px;text-align:center}
 @media(max-width:820px){
+  body{font-size:16px}
   .cards,.cards.two,.price,.who,.hero-grid{grid-template-columns:1fr}
-  section{padding:64px 0}
-  .step{grid-template-columns:58px 1fr;gap:14px;padding:22px}
-  .step .n{width:58px;height:58px;font-size:24px}
+  .voice{grid-template-columns:1fr 1fr}
+  section{padding:48px 0}
+  .hero .wrap{padding-top:52px;padding-bottom:52px}
+  .sec-lead{margin-bottom:26px;font-size:15px}
+  .c{padding:20px}
+  .c .ill{width:104px;margin-bottom:10px}
+  .sec-ill{width:132px;margin-bottom:14px}
+  .ill-row{gap:12px;margin-bottom:24px}
+  .ill-row img{width:96px}
+  .step{grid-template-columns:46px 1fr;gap:12px;padding:18px}
+  .step .n{width:46px;height:46px;font-size:20px}
+  .step h3{font-size:18px}
   .step .si{display:none}
-  .hero-ill{width:min(240px,64vw);margin:24px auto 0}
-  .ill-row img{width:120px}
-  .who .c{flex-direction:column;align-items:center;text-align:center}
+  .hero-ill{width:min(210px,56vw);margin:20px auto 0}
+  .p{padding:22px 18px}
+  .p .amt{font-size:36px}
+  .honest{padding:20px 18px}
+  details{padding:14px 16px}
+  .who .c{flex-direction:column;align-items:center;text-align:center;gap:10px}
+  .who img{width:88px;flex-basis:88px}
+}
+/* 縦に間延びさせないため、狭い画面では1枚のリストカードにまとめる */
+@media(max-width:560px){
+  .voice{grid-template-columns:1fr;gap:0;background:#fff;border:1px solid var(--line);
+    border-radius:16px;overflow:hidden;box-shadow:0 2px 10px rgba(20,60,60,.05)}
+  .voice .chip{border:0;border-bottom:1px solid var(--line);border-radius:0;
+    box-shadow:none;padding:12px 16px;font-size:15px}
+  .voice .chip:last-child{border-bottom:0}
 }
 </style>
 </head>
