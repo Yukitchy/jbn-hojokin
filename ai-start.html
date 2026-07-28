@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>かすみさんのAI練習帳｜じぶんで補助金</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=M+PLUS+Rounded+1c:wght@400;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="soft.css">
+<style>
+.top{background:#fff;border-bottom:1px solid var(--line);padding:36px 0 32px}
+.top h1{font-size:clamp(25px,4.2vw,44px);line-height:1.4;margin:12px 0 16px}
+.top p{color:var(--sub);font-size:16.5px;max-width:60ch}
+.sec{padding:56px 0}
+.sec.cream{background:var(--cream)}
+h2.t{font-size:clamp(22px,3.4vw,34px);margin-bottom:12px}
+.lead{color:var(--sub);font-size:16px;margin-bottom:26px;max-width:62ch}
+.card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:24px}
+.card h3{font-size:17.5px;margin-bottom:9px}
+.card p{font-size:15px;color:var(--sub)}
+.grid3{display:grid;gap:16px;grid-template-columns:repeat(3,1fr)}
+.grid2{display:grid;gap:18px;grid-template-columns:1fr 1fr}
+
+/* ---- 練習カード ---- */
+.day{background:#fff;border:1px solid var(--line);border-radius:28px;padding:0;
+  margin-bottom:20px;overflow:hidden}
+.day>.hd{display:flex;gap:18px;align-items:center;padding:22px 26px;background:var(--cream)}
+.day>.hd img{width:clamp(56px,8vw,80px);flex:none}
+.day .n{font-family:"Lilita One",sans-serif;color:var(--accent-2);font-size:13px;letter-spacing:.12em}
+.day h3{font-size:clamp(18px,2.4vw,23px);margin:3px 0 4px;line-height:1.5}
+.day .why{font-size:14.5px;color:var(--sub);line-height:1.85}
+.day>.bd{padding:22px 26px}
+.day .plabel{font-size:13px;font-family:"M PLUS Rounded 1c",sans-serif;font-weight:800;
+  color:var(--accent);margin-bottom:9px;display:flex;align-items:center;gap:8px}
+.pbox{position:relative;background:#FFFDFA;border:2px dashed #DFD3C0;border-radius:18px;
+  padding:19px 22px;font-size:15px;line-height:2;white-space:pre-wrap;color:var(--ink)}
+.pbox .blank{background:#FFF0DE;border-bottom:2px solid #E9B871;border-radius:4px;padding:0 5px;font-weight:700}
+.cp{margin-top:13px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.cp button{background:var(--accent);color:#fff;border:none;border-radius:999px;
+  padding:12px 26px;font-family:"M PLUS Rounded 1c",sans-serif;font-weight:800;font-size:15px;
+  cursor:pointer;box-shadow:0 6px 16px rgba(63,149,120,.28);transition:transform .12s var(--spring)}
+.cp button:hover{transform:translateY(-2px)}
+.cp button.done{background:var(--accent-2)}
+.cp span{font-size:13.5px;color:var(--sub)}
+.tip{margin-top:16px;background:var(--cream);border-radius:16px;padding:14px 18px;font-size:14px;line-height:1.9}
+.tip b{color:var(--accent);font-family:"M PLUS Rounded 1c",sans-serif}
+
+.step{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+  border-radius:20px;padding:18px 22px;margin-bottom:11px}
+.step .b{font-family:"Lilita One",sans-serif;color:#fff;background:var(--accent);
+  width:34px;height:34px;border-radius:50%;display:grid;place-items:center;flex:none;font-size:16px}
+.step p{font-size:15px;line-height:1.9}
+.step p b{font-family:"M PLUS Rounded 1c",sans-serif}
+.warn{background:#FFF0E8;border:1px solid #F0CDB8;border-radius:22px;padding:22px 26px}
+.warn h3{color:#B7663F;font-size:18px;margin-bottom:9px}
+.warn p{color:#8A5A3E;font-size:15px;line-height:1.95}
+@media(max-width:860px){.grid3,.grid2{grid-template-columns:1fr}.day>.hd{flex-direction:column;text-align:center}}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap">
+    <div class="ill-row">
+      <div>
+        <div class="eyebrow">PROTOTYPE 03 ／ じぶんで補助金</div>
+        <h1>かすみさんの<br>AI練習帳</h1>
+        <p>補助金の話は、いったん忘れてください。<br>
+        これは<b>明日から民泊の仕事が楽になる使い方</b>を、7つだけ集めたものです。<br>
+        覚えることはありません。<b>コピーして、貼って、送る。</b>それだけです。</p>
+      </div>
+      <img class="ill ill-l" src="img/computer_manual_woman.png" alt="">
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="wrap">
+    <h2 class="t">はじめに：どこで使うの？</h2>
+    <p class="lead">スマホのアプリで大丈夫です。無料で使えます。どれか1つ入れれば十分です。</p>
+    <div class="grid3">
+      <div class="card"><h3>ChatGPT</h3><p>いちばん名前が知られています。迷ったらこれで。アプリストアで「ChatGPT」と検索。</p></div>
+      <div class="card" style="border-color:var(--accent);border-width:2px"><h3>Claude（クロード）</h3><p>長い文章を読ませるのが得意です。<b>レビューを全部読ませる使い方（DAY 5）はこちらが向いています。</b>ユウキが普段使っているのもこれです。</p></div>
+      <div class="card"><h3>Gemini（ジェミニ）</h3><p>Googleのものです。Androidをお使いなら最初から入っていることがあります。</p></div>
+    </div>
+
+    <h2 class="t" style="margin-top:44px">使い方は、これだけ</h2>
+    <div class="step"><div class="b">1</div><p>下のカードの<b>「コピーする」を押す</b></p></div>
+    <div class="step"><div class="b">2</div><p>アプリを開いて、入力欄に<b>長押し → ペースト（貼り付け）</b></p></div>
+    <div class="step"><div class="b">3</div><p><span style="background:#FFF0DE;border-bottom:2px solid #E9B871;padding:0 5px;font-weight:700">この色の部分</span>だけ、自分の言葉に書き換える</p></div>
+    <div class="step"><div class="b">4</div><p>送信。返ってきた文章が気に入らなければ、<b>「もっと短く」「もっとやわらかく」と続けて言うだけ</b>で直ります</p></div>
+    <p class="lead" style="margin-top:18px">4番がいちばん大事です。<b>一発で完璧なものを出そうとしなくていい</b>のがAIの良いところで、
+    やり直しは何回でもタダです。ここが人にお願いするのと決定的に違うところです。</p>
+  </div>
+</div>
+
+<div class="sec cream">
+  <div class="wrap">
+    <h2 class="t">7日ぶん。上から順に、1日1つ。</h2>
+    <p class="lead">効果が出るのが早い順に並べています。DAY 1 は、たぶん今日から使えます。</p>
+
+    <div class="day">
+      <div class="hd"><img class="ill" src="img/tv_housou_sakka.png" alt="">
+        <div><span class="n">DAY 1</span><h3>レビューへの返信を書いてもらう</h3>
+        <p class="why">毎回ゼロから考えていた返信が、10秒で下書きになります。いちばん最初に効きます。</p></div></div>
+      <div class="bd">
+        <div class="plabel">▼ これをコピーして貼る</div>
+        <div class="pbox" data-p>あなたは民泊のホストです。宿泊者からいただいた口コミに、日本語で返信文を書いてください。
+
+・かしこまりすぎず、あたたかい言葉づかいで
+・150文字くらい
+・お礼 → いただいた指摘への受け止め → また来てほしい気持ち、の順で
+・言い訳やお詫びの連発はしない
+
+【いただいた口コミ】
+<span class="blank">ここに口コミを貼り付ける</span></div>
+        <div class="cp"><button>コピーする</button><span>お客さまの本名は消してから貼ってください</span></div>
+        <div class="tip"><b>コツ：</b>返ってきた文が硬いと感じたら「<b>もう少しくだけた感じで</b>」、長ければ「<b>半分の長さで</b>」と送るだけで直ります。</div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="hd"><img class="ill" src="img/homestay_foreign.png" alt="">
+        <div><span class="n">DAY 2</span><h3>外国のお客さまへの返信を、英語で</h3>
+        <p class="why">翻訳サイトを行ったり来たりしなくてよくなります。日本語で書けば、そのまま英語になります。</p></div></div>
+      <div class="bd">
+        <div class="plabel">▼ これをコピーして貼る</div>
+        <div class="pbox" data-p>民泊のゲストへ送る英語のメッセージを作ってください。
+
+・日本語の訳文も必ず一緒に出してください（私が意味を確認するため）
+・ていねいだけど、堅すぎない英語で
+・短く、箇条書きを使ってわかりやすく
+
+【伝えたいこと（日本語でOK）】
+<span class="blank">例：チェックインは15時から。鍵は玄関の右側のキーボックス。暗証番号は当日の朝に送ります。</span></div>
+        <div class="cp"><button>コピーする</button><span>日本語訳もついてくるので、意味を確認してから送れます</span></div>
+        <div class="tip"><b>コツ：</b>相手から英語のメッセージが来た時は「<b>これを日本語に訳して、返信案も英語と日本語で作って</b>」と貼るだけでも成立します。</div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="hd"><img class="ill" src="img/question_head_girl.png" alt="">
+        <div><span class="n">DAY 3</span><h3>よく聞かれる質問の答えを、まとめて作る</h3>
+        <p class="why">一度作れば、あとは貼るだけ。同じ質問に何度も打ち直す時間が消えます。</p></div></div>
+      <div class="bd">
+        <div class="plabel">▼ これをコピーして貼る</div>
+        <div class="pbox" data-p>民泊のゲストからよく聞かれる質問に対する「返信の定型文」を10個作ってください。
+
+・日本語と英語の両方
+・そのままコピーして送れる完成文で
+・堅苦しくなく、短く
+
+【うちの施設の情報】
+<span class="blank">例：熊本市中央区。戸建1棟貸し、最大17名。駐車場8台。チェックイン15時／チェックアウト10時。朝食つき。最寄りのコンビニは徒歩5分。ペット不可。</span></div>
+        <div class="cp"><button>コピーする</button><span>できた文はスマホのメモに保存しておくと便利です</span></div>
+        <div class="tip"><b>コツ：</b>施設の情報は<b>多く書くほど良いもの</b>が返ってきます。思いつくまま並べて大丈夫です。整えるのはAIの仕事です。</div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="hd"><img class="ill" src="img/soujiki_woman.png" alt="">
+        <div><span class="n">DAY 4</span><h3>清掃・備品のチェックリストを作る</h3>
+        <p class="why">頭の中にあるものを、人に渡せる形にします。将来スタッフさんに任せる時にそのまま使えます。</p></div></div>
+      <div class="bd">
+        <div class="plabel">▼ これをコピーして貼る</div>
+        <div class="pbox" data-p>民泊の清掃チェックリストを作ってください。
+
+・チェックアウト後 → 次のゲストが来るまでの流れ順に
+・見落としやすいところに ★ をつけて
+・印刷して壁に貼れるくらいの分量で
+・部屋ごとに分けて
+
+【施設の内容】
+<span class="blank">例：戸建1棟。寝室3、浴室1、トイレ2、キッチン、リビング。最大17名。朝食を出している。</span></div>
+        <div class="cp"><button>コピーする</button><span>そのまま印刷できる形で返ってきます</span></div>
+        <div class="tip"><b>コツ：</b>「<b>この作業にかかる時間の目安も入れて</b>」と足すと、人に頼む時の見積もりにも使えます。</div>
+      </div>
+    </div>
+
+    <div class="day" style="border-color:var(--accent);border-width:2px">
+      <div class="hd" style="background:color-mix(in srgb,var(--accent) 12%,#fff)">
+        <img class="ill" src="img/magnifier_mushimegane_blank.png" alt="">
+        <div><span class="n">DAY 5 ／ ここが本命です</span><h3>過去のレビューを全部読ませて、不満の傾向を出す</h3>
+        <p class="why">人間には読み切れない量を、AIは一度に読めます。<b>民泊ドックでいちばん効くのがこの工程</b>です。星が高い施設ほど、不満は「星4なのに一言だけ書いてある」形で紛れています。</p></div></div>
+      <div class="bd">
+        <div class="plabel">▼ これをコピーして貼る</div>
+        <div class="pbox" data-p>これは私が運営する民泊にいただいた口コミの全文です。すべて読んで、次の形で教えてください。
+
+1. ほめられている点を、多い順に5つ（それぞれ何件あったか）
+2. 不満・惜しいと書かれている点を、多い順に5つ（それぞれ何件あったか）
+3. 星は高いのに、文中でだけ触れられている小さな不満
+4. お金をかけずに直せること
+5. 工事や設備投資が必要なこと
+
+【口コミ全文】
+<span class="blank">ここに口コミをまとめて貼り付ける（何十件でも大丈夫です）</span></div>
+        <div class="cp"><button>コピーする</button><span>お客さまの本名は消してから貼ってください</span></div>
+        <div class="tip"><b>ここが大事：</b>最後の「<b>5. 工事や設備投資が必要なこと</b>」が、そのまま<b>補助金で申請する対象</b>になります。
+        つまりこの1回で、民泊ドックの診断と、補助金の申請理由が同時に手に入ります。<b>この流れを、かすみさんご自身の物件で一度やってみてください。</b></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="hd"><img class="ill" src="img/homestay_BandB_minpaku_seiyou.png" alt="">
+        <div><span class="n">DAY 6</span><h3>掲載ページの説明文を書き直してもらう</h3>
+        <p class="why">持っている強みが言葉になっていないと、検索で見つけてもらえません。ここは物件を変えずに直せます。</p></div></div>
+      <div class="bd">
+        <div class="plabel">▼ これをコピーして貼る</div>
+        <div class="pbox" data-p>Airbnbの掲載ページの「タイトル」と「説明文の冒頭2行」を書き直してください。
+
+・検索で探されそうな言葉を必ず入れる（地名／人数／一棟貸し／駐車場 など）
+・タイトルは3案、それぞれ違う切り口で
+・説明文の冒頭2行は、いちばん強いことを先に
+・大げさな表現は使わない
+
+【うちの強み】
+<span class="blank">例：熊本市中央区。一棟貸しで最大17名。駐車場8台。スーパーホスト、レビュー4.82。朝食つき。国道沿いで車で来やすい。</span>
+
+【いまのタイトル】
+<span class="blank">いまのタイトルを貼る</span></div>
+        <div class="cp"><button>コピーする</button><span>3案出てくるので、いちばんしっくりくるものを選べます</span></div>
+        <div class="tip"><b>コツ：</b>気に入らなければ「<b>もう3案</b>」と送れば、また3つ出てきます。何度でもタダです。</div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="hd"><img class="ill" src="img/dentaku_businesswoman.png" alt="">
+        <div><span class="n">DAY 7</span><h3>値付けを相談する</h3>
+        <p class="why">「なんとなく」で決めていた料金に、理屈をつけます。答えを鵜呑みにせず、考えるきっかけとして使ってください。</p></div></div>
+      <div class="bd">
+        <div class="plabel">▼ これをコピーして貼る</div>
+        <div class="pbox" data-p>民泊の料金設定について相談させてください。私は熊本で一棟貸しの民泊を運営しています。
+
+いまの料金は次のとおりです。
+<span class="blank">例：1名4,400円、追加1名ごとに4,000円。曜日や連泊での割引はなし。</span>
+
+次の3点について、それぞれ考え方と具体的な金額案を出してください。
+1. 連泊してもらうための割引をつけるなら、どのくらいが妥当か
+2. 金土と平日で料金を変えるなら、どのくらいの差が適切か
+3. 空室のまま当日を迎えそうな時、いくらまで下げても損にならないか
+
+なお、うちの粗利率は約8割です。この数字を前提に計算してください。</div>
+        <div class="cp"><button>コピーする</button><span>出てきた数字は「案」です。最後はご自身の感覚で決めてください</span></div>
+        <div class="tip"><b>コツ：</b>粗利率を伝えるのがポイントです。<b>粗利8割だと「空室のまま持つより、下げてでも埋めた方が得」</b>という計算になり、値下げの下限が具体的に出ます。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="wrap">
+    <h2 class="t">うまくいかない時の、3つだけ</h2>
+    <div class="grid3">
+      <div class="card"><h3>① 短く聞きすぎている</h3><p>「返信書いて」だけだと、当たり障りのない文が返ってきます。
+      <b>誰に・何のために・どのくらいの長さで</b>を書くと、急に良くなります。上のカードはそこを埋めてあります。</p></div>
+      <div class="card"><h3>② 一発で決めようとしている</h3><p>返ってきた文に<b>「もっと短く」「もっとやわらかく」「別の案を3つ」</b>と続けて言うだけで直ります。
+      会話の続きとして直せるのが、AIのいちばん便利なところです。</p></div>
+      <div class="card"><h3>③ 事実を確かめていない</h3><p>AIは<b>もっともらしい間違いを言います</b>。特に補助金の締切・金額・制度の条件。
+      現場の感覚と違うと思ったら、それはたぶんAIが間違っています。制度のことは必ず窓口で確認してください。</p></div>
+    </div>
+
+    <div class="warn" style="margin-top:24px">
+      <h3>入れてはいけないもの</h3>
+      <p>ゲストの<b>本名・電話番号・メールアドレス・予約番号・クレジットカード情報</b>は貼らないでください。
+      口コミを貼る時は、名前の部分だけ消してから貼れば大丈夫です。<br>
+      ご自身の売上や物件の情報は入れて構いません（そこを踏まえた答えが返ってくるので、むしろ入れた方が役に立ちます）。</p>
+    </div>
+  </div>
+</div>
+
+<div class="sec cream" style="text-align:center">
+  <div class="wrap">
+    <img class="ill ill-m ill-c" src="img/whiteboard_up_woman2.png" alt="" style="margin-bottom:18px">
+    <h2 class="t">3日目くらいで、たぶん抜けます。</h2>
+    <p class="lead" style="margin:0 auto 24px;max-width:48ch">
+      「これ、自分で書くより早い」と思った瞬間から、教わらなくても勝手に使うようになります。
+      そこまで行けば、<b>会員さんに「これ使ってみて」と自信をもって言えるようになります</b>。<br>
+      使っていない人が勧めても伝わらないので、まずはかすみさんご自身から。</p>
+    <a class="btn" href="followup.html">打ち合わせ資料にもどる</a>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.day .cp button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const box = btn.closest('.bd').querySelector('[data-p]');
+    navigator.clipboard.writeText(box.innerText).then(() => {
+      btn.textContent = 'コピーしました！';
+      btn.classList.add('done');
+      setTimeout(() => { btn.textContent = 'コピーする'; btn.classList.remove('done'); }, 2000);
+    });
+  });
+});
+
+if (location.search.includes('test=1')) {
+  const boxes = document.querySelectorAll('[data-p]');
+  const btns  = document.querySelectorAll('.day .cp button');
+  console.assert(boxes.length === 7, 'プロンプトは7つのはず: ' + boxes.length);
+  console.assert(btns.length === 7, 'ボタンは7つのはず: ' + btns.length);
+  boxes.forEach((b, i) => console.assert(b.innerText.length > 60, (i+1) + '番のプロンプトが短すぎる'));
+  console.log('self-check done');
+}
+</script>
+</body>
+</html>

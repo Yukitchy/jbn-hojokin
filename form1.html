@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>様式1 えらぶだけ下書き｜じぶんで補助金</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=M+PLUS+Rounded+1c:wght@400;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="soft.css">
+<style>
+.top{background:#fff;border-bottom:1px solid var(--line);padding:34px 0 30px}
+.top h1{font-size:clamp(24px,3.8vw,40px);line-height:1.4;margin:12px 0 14px}
+.top p{color:var(--sub);font-size:16px;max-width:62ch}
+.legal{background:#FFF6E6;border:1px solid #F0DEBB;border-radius:20px;padding:16px 20px;
+  font-size:14px;color:#7E6233;line-height:1.9;margin-top:18px;max-width:70ch}
+.cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);gap:26px;
+  max-width:1300px;margin:26px auto 60px;padding:0 22px;align-items:start}
+.panel{background:#fff;border:1px solid var(--line);border-radius:26px;padding:26px}
+
+/* ---- 質問カード ---- */
+.q{border:1px solid var(--line);background:#fff;border-radius:26px;padding:24px 26px;margin-bottom:16px}
+.q>.hd{display:flex;gap:16px;align-items:flex-start;margin-bottom:16px}
+.q>.hd img{width:clamp(58px,9vw,86px);flex:none}
+.q .n{font-family:"Lilita One",sans-serif;color:var(--accent-2);font-size:13px;letter-spacing:.1em}
+.q h3{font-size:19px;margin:3px 0 5px;line-height:1.5}
+.q .note{font-size:13.5px;color:var(--sub);line-height:1.8}
+.chips{display:flex;flex-wrap:wrap;gap:9px}
+.chip{border:2px solid var(--line);background:#FFFDFA;border-radius:999px;
+  padding:11px 19px;font-size:15px;font-family:"M PLUS Rounded 1c",sans-serif;font-weight:800;
+  color:var(--ink);cursor:pointer;transition:all .14s var(--spring);line-height:1.5;text-align:left}
+.chip:hover{border-color:var(--accent);transform:translateY(-2px)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff;
+  box-shadow:0 6px 16px rgba(63,149,120,.32)}
+.chip[aria-pressed="true"]::before{content:"✓ ";font-weight:900}
+.multi{font-size:12.5px;color:var(--accent);font-family:"M PLUS Rounded 1c",sans-serif;
+  font-weight:800;margin-bottom:9px;display:block}
+
+/* ---- 数字（スライダー） ---- */
+.sl{margin-bottom:20px}
+.sl .lab{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:7px}
+.sl .lab b{font-size:15px;font-family:"M PLUS Rounded 1c",sans-serif}
+.sl .lab .v{font-family:"Lilita One",sans-serif;color:var(--accent);font-size:23px;
+  font-variant-numeric:tabular-nums}
+.sl .lab .v i{font-style:normal;font-size:.6em;color:var(--sub);margin-left:3px}
+.sl input[type=range]{width:100%;accent-color:var(--accent);height:26px;cursor:pointer}
+.sl .hint{font-size:12.5px;color:var(--sub);line-height:1.7}
+
+/* ---- 出力 ---- */
+.out{position:sticky;top:18px}
+.out .bar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+#doc{background:#FFFDFA;border:1px solid var(--line);border-radius:20px;padding:26px 28px;
+  font-size:15px;line-height:2.05;max-height:66vh;overflow-y:auto;white-space:pre-wrap}
+#doc h4{font-family:"M PLUS Rounded 1c",sans-serif;font-size:16px;color:var(--accent);
+  margin:24px 0 8px;padding-bottom:6px;border-bottom:2px dotted var(--line)}
+#doc h4:first-child{margin-top:0}
+#doc .ttl{background:var(--gold);border-radius:16px;padding:16px 20px;
+  font-family:"M PLUS Rounded 1c",sans-serif;font-weight:800;font-size:18px;line-height:1.65;margin-bottom:8px}
+#doc .fill{background:#FFF0DE;border-bottom:2px solid #E9B871;border-radius:4px;padding:0 4px}
+.gauge{background:var(--cream);border-radius:18px;padding:16px 20px;margin-bottom:16px}
+.gauge .t{display:flex;justify-content:space-between;font-size:13.5px;
+  font-family:"M PLUS Rounded 1c",sans-serif;font-weight:800;margin-bottom:8px}
+.gauge .b{height:14px;background:#fff;border-radius:99px;overflow:hidden}
+.gauge .b i{display:block;height:100%;background:linear-gradient(90deg,#8FCFB4,var(--accent));
+  border-radius:99px;transition:width .3s var(--ease-out)}
+.calc{background:var(--cream);border-radius:20px;padding:20px 22px;margin-top:8px}
+.calc h4{font-size:15px;color:var(--accent);margin-bottom:12px}
+.calc dl{display:grid;grid-template-columns:1fr auto;gap:9px 14px;font-size:14.5px}
+.calc dt{color:var(--sub)}
+.calc dd{font-variant-numeric:tabular-nums;font-weight:700;text-align:right}
+.calc dd.big{font-family:"Lilita One",sans-serif;color:var(--accent-2);font-size:21px}
+details{margin-top:14px;font-size:14px}
+summary{cursor:pointer;color:var(--sub);font-size:13.5px;
+  font-family:"M PLUS Rounded 1c",sans-serif;font-weight:800}
+details textarea{width:100%;margin-top:9px;font-family:inherit;font-size:14.5px;line-height:1.9;
+  border:1px solid #E4DACB;border-radius:14px;padding:11px 14px;background:#FFFDFA;min-height:74px;resize:vertical}
+.hint2{font-size:13.5px;color:var(--sub);margin-top:14px;line-height:1.85}
+.tips{background:#fff;border:1px solid var(--line);border-radius:26px;padding:24px 26px;margin-top:18px}
+.tips h3{font-size:17px;margin-bottom:12px}
+.tips ol{padding-left:20px;font-size:14.5px;color:var(--sub);line-height:2}
+.tips ol b{color:var(--ink)}
+@media(max-width:1000px){.cols{grid-template-columns:1fr}.out{position:static}#doc{max-height:none}}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap">
+    <div class="ill-row">
+      <div>
+        <div class="eyebrow">PROTOTYPE 02 ／ じぶんで補助金</div>
+        <h1>様式1「えらぶだけ」下書き</h1>
+        <p>白紙に向かって書く必要はありません。<b>あてはまるものを指でタップしていくだけ</b>で、
+        右側に補助金の事業計画書（様式1）の下書きが組み上がっていきます。
+        文章も、効果の計算も、投資回収年数も、こちらで用意します。<br>
+        いまは<b>かすみさんのシャワー室の案件</b>が選ばれた状態から始まります。</p>
+      </div>
+      <img class="ill ill-m" src="img/pc_kowai_obaasan.png" alt="">
+    </div>
+    <div class="legal">
+      <b>これは書類の作成代行ではありません。</b>
+      選ぶのはご本人、出てくるのは下書きのテキストで、清書と提出はご本人が行います。
+      私たちは「代わりに書く」のではなく「<b>書ける状態にする</b>」ところまでを担当します。
+      まるごと任せたい方は、行政書士（てつろーさん）に正式にご依頼いただく形になります。
+    </div>
+  </div>
+</div>
+
+<div class="cols">
+
+  <div>
+    <div class="q">
+      <div class="hd"><img class="ill" src="img/homestay_japan.png" alt="">
+        <div><span class="n">Q1</span><h3>どんな施設ですか？</h3>
+        <p class="note">ひとつ選んでください。</p></div></div>
+      <div class="chips" id="q_facility"></div>
+    </div>
+
+    <div class="q">
+      <div class="hd"><img class="ill" src="img/ofuro_shower_yowai.png" alt="">
+        <div><span class="n">Q2</span><h3>いま、いちばん困っていることは？</h3>
+        <p class="note">ここで選んだものが、補助金で直す対象になります。</p></div></div>
+      <span class="multi">◎ ひとつ選んでください（いちばん効くもの1つに絞った方が通ります）</span>
+      <div class="chips" id="q_fix"></div>
+    </div>
+
+    <div class="q">
+      <div class="hd"><img class="ill" src="img/question_head_girl.png" alt="">
+        <div><span class="n">Q3</span><h3>ゲストによく言われることは？</h3>
+        <p class="note">お客さんの声は、審査でいちばん効く根拠になります。</p></div></div>
+      <span class="multi">◎ あてはまるもの全部（複数えらべます）</span>
+      <div class="chips" id="q_voice"></div>
+    </div>
+
+    <div class="q">
+      <div class="hd"><img class="ill" src="img/graph_up.png" alt="">
+        <div><span class="n">Q4</span><h3>自慢できることは？</h3>
+        <p class="note">遠慮しないでください。ここが弱いと落ちます。</p></div></div>
+      <span class="multi">◎ あてはまるもの全部</span>
+      <div class="chips" id="q_strength"></div>
+    </div>
+
+    <div class="q">
+      <div class="hd"><img class="ill" src="img/family_syunyu.png" alt="">
+        <div><span class="n">Q5</span><h3>どんなお客さんに来てほしいですか？</h3>
+        <p class="note">「みんな」は選べません。絞るほど通ります。</p></div></div>
+      <span class="multi">◎ あてはまるもの全部</span>
+      <div class="chips" id="q_target"></div>
+    </div>
+
+    <div class="q">
+      <div class="hd"><img class="ill" src="img/dentaku_businesswoman.png" alt="">
+        <div><span class="n">Q6</span><h3>数字は、つまみを動かすだけ。</h3>
+        <p class="note">効果と投資回収年数は自動で計算します。だいたいで大丈夫です。</p></div></div>
+
+      <div class="sl"><div class="lab"><b>1名あたりの宿泊料</b><span class="v" id="v_base">4,400<i>円</i></span></div>
+        <input type="range" id="n_base" min="2000" max="20000" step="100" value="4400">
+        <p class="hint">1泊1名の基本料金です。</p></div>
+
+      <div class="sl"><div class="lab"><b>追加1名あたり</b><span class="v" id="v_add">4,000<i>円</i></span></div>
+        <input type="range" id="n_add" min="0" max="15000" step="100" value="4000"></div>
+
+      <div class="sl"><div class="lab"><b>1組の人数（追加分）</b><span class="v" id="v_pax">3<i>名</i></span></div>
+        <input type="range" id="n_pax" min="0" max="16" step="1" value="3"></div>
+
+      <div class="sl"><div class="lab"><b>ひと月に増えそうな組数</b><span class="v" id="v_grp">5<i>組</i></span></div>
+        <input type="range" id="n_grp" min="1" max="30" step="1" value="5">
+        <p class="hint">控えめでいいです。大きすぎると「根拠は？」と聞かれます。</p></div>
+
+      <div class="sl"><div class="lab"><b>粗利率</b><span class="v" id="v_margin">80<i>%</i></span></div>
+        <input type="range" id="n_margin" min="20" max="95" step="5" value="80">
+        <p class="hint">売上から経費を引いて手元に残る割合。民泊は高めに出ます。</p></div>
+
+      <div class="sl"><div class="lab"><b>工事・購入にかかるお金</b><span class="v" id="v_cost">150<i>万円</i></span></div>
+        <input type="range" id="n_cost" min="100000" max="5000000" step="50000" value="1500000">
+        <p class="hint">相見積を取る前の概算で大丈夫です。</p></div>
+
+      <div class="calc">
+        <h4>いま選んでいる内容だと、こうなります</h4>
+        <dl>
+          <dt>1組あたりの単価</dt><dd id="c_unit">–</dd>
+          <dt>ひと月の増収</dt><dd id="c_month">–</dd>
+          <dt>1年の粗利増</dt><dd id="c_year">–</dd>
+          <dt>もらえる補助金（2/3・上限100万）</dt><dd id="c_sub">–</dd>
+          <dt>自分で出すお金</dt><dd id="c_net">–</dd>
+          <dt>もとが取れるまで（補助金なし）</dt><dd id="c_pay" class="big">–</dd>
+          <dt>もとが取れるまで（補助金あり）</dt><dd id="c_pay2" class="big">–</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="q">
+      <div class="hd"><img class="ill" src="img/soudan_madoguchi.png" alt="">
+        <div><span class="n">Q7</span><h3>工事をお願いする業者さんは決まっていますか？</h3>
+        <p class="note">実名が入ると「本当に実行できる」の証明になります。</p></div></div>
+      <div class="chips" id="q_vendor"></div>
+      <details><summary>＋ 業者名を自分で入れる</summary>
+        <textarea id="x_vendor" placeholder="例：㈲若杉建築設計工房"></textarea></details>
+    </div>
+
+    <div class="q" style="background:var(--cream)">
+      <div class="hd"><img class="ill" src="img/whiteboard_up_woman2.png" alt="">
+        <div><span class="n">OPTION</span><h3>言葉を足したいときだけ</h3>
+        <p class="note">ここは<b>空欄のままで構いません</b>。選んだ内容だけで下書きは完成します。</p></div></div>
+      <details><summary>＋ 施設の説明を自分の言葉で書く</summary>
+        <textarea id="x_biz" placeholder="例：2016年に開業し、2018年6月より住宅宿泊事業を営んでいる。熊本市中央区帯山にて…"></textarea></details>
+      <details><summary>＋ アンケートの実数を入れる（取れたあとで）</summary>
+        <textarea id="x_survey" placeholder="例：宿泊者アンケート48件のうち、「入浴の順番待ちが気になった」31件"></textarea></details>
+    </div>
+  </div>
+
+  <div class="out">
+    <div class="panel">
+      <div class="gauge">
+        <div class="t"><span id="g_txt">選ぶほど、下書きが埋まります</span><span id="g_pct">0%</span></div>
+        <div class="b"><i id="g_bar" style="width:0%"></i></div>
+      </div>
+      <div class="bar">
+        <div><h3 style="font-size:19px;margin:0">できあがった下書き</h3>
+        <p style="font-size:13.5px;color:var(--sub);margin:3px 0 0">そのままWordに貼れます</p></div>
+        <button class="btn" id="copy" style="padding:12px 26px;font-size:15px">コピーする</button>
+      </div>
+      <div id="doc"></div>
+      <p class="hint2">※ <span style="background:#FFF0DE;border-bottom:2px solid #E9B871;padding:0 4px">この色の部分</span>は、
+      あとで実数に差し替えるところです。アンケートの件数と相見積の金額が出たら埋めます。
+      <b>そこを一緒にやるのが「申請ばんそう」です。</b></p>
+    </div>
+
+    <div class="tips">
+      <h3>なぜ、選ぶだけで書けるのか</h3>
+      <ol>
+        <li><b>かすみさんが2021年に採択された様式1</b>を分解して、通る型を取り出しました。</li>
+        <li>事業名は<b>「手段＋結果」</b>。審査員は何十本も読むので、タイトルで通りが決まります。</li>
+        <li><b>市場 → お客さんの声 → 強み → ターゲット → 打ち手 → 効果 → 回収年数</b>が一本の線でつながる構成を、選択肢の裏に仕込んであります。</li>
+        <li>効果は「率」ではなく<b>「円」で書き、投資回収年数まで出す</b>。ここは自動計算にしました。</li>
+        <li>だから、埋めるべきは<b>あなたにしか分からない事実だけ</b>。文章の書き方で悩む必要はありません。</li>
+      </ol>
+    </div>
+  </div>
+
+</div>
+
+<p style="text-align:center;margin:0 0 60px">
+  <a class="btn ghost" href="followup.html">← 打ち合わせ資料にもどる</a>
+  <a class="btn ghost" href="dock-report.html" style="margin-left:10px">民泊ドック診断書 →</a>
+</p>
+
+<script>
+const $ = id => document.getElementById(id);
+const yen = n => Number(n||0).toLocaleString('ja-JP') + '円';
+const man = n => (n/10000).toLocaleString('ja-JP');
+const fill = s => '<span class="fill">' + s + '</span>';
+
+/* ===== 選択肢データ =====
+   v = ボタンに出る言葉 ／ t = 下書きに入る文章 */
+const DATA = {
+  facility: {multi:false, pick:0, items:[
+    {v:'戸建を1棟まるごと', t:'戸建1棟を1グループ限定で貸し切る形態で運営している'},
+    {v:'アパート・マンションの1室', t:'集合住宅の一室を宿泊施設として運営している'},
+    {v:'戸建とアパートの複数棟', t:'戸建1棟に加えて集合住宅の複数室を運営しており、規模の異なるグループを同時に受け入れられる'},
+    {v:'古民家', t:'古民家を改修した宿泊施設を運営しており、建物そのものが滞在価値になっている'},
+  ]},
+
+  /* 困りごと＝補助対象。means（手段）とresult（結果）で事業名を作る */
+  fix: {multi:false, pick:0, items:[
+    {v:'お風呂・トイレの数が足りない', means:'シャワー室とトイレの増設',
+     result:'大人数グループの待ち時間ゼロを実現',
+     t:'現状、収容人数に対して浴室・トイレの数が不足しており、夕方から夜にかけて順番待ちが発生している。これは清掃や接客の工夫では解消できない、建物そのものの制約である',
+     eff:'水回りの待ち時間が解消されることで、これまで人数を理由に見送られていた大人数グループの受け入れが可能となる'},
+    {v:'大人数を受け入れられない', means:'客室の増設と寝具の拡充',
+     result:'大人数グループの受け入れを実現',
+     t:'現状の収容人数では、三世代旅行や合宿といった大人数の問い合わせを断らざるを得ない状況が続いている',
+     eff:'受け入れ可能人数が増えることで、客単価の高い大人数グループの予約を取りこぼさなくなる'},
+    {v:'Wi-Fiが遅い・つながらない', means:'高速Wi-Fi環境の整備',
+     result:'ワーケーション需要の取り込みを実現',
+     t:'通信環境が弱く、仕事を持ち込む滞在や動画視聴に耐えられていない。レビューでも通信環境への指摘が出ている',
+     eff:'通信環境が整うことで、平日の稼働が弱い時期にワーケーション層を取り込める'},
+    {v:'エアコン・給湯器が古い', means:'空調・給湯設備の更新',
+     result:'夏冬の快適性向上と光熱費の削減を実現',
+     t:'設備が老朽化しており、夏冬の快適性に不安がある。故障時は営業停止に直結するリスクを抱えている',
+     eff:'快適性が改善して評価が上がるとともに、省エネ機器への更新により光熱費が下がる'},
+    {v:'予約サイトの管理に手間がかかる', means:'予約管理システムの導入と決済のオンライン化',
+     result:'非対面での運営体制を実現',
+     t:'複数の予約サイトを手作業で管理しており、ダブルブッキングの危険と対応時間の負担が大きい',
+     eff:'予約と決済が自動化されることで、対応時間が削減され、受け入れ可能件数そのものが増える'},
+    {v:'写真が古くて予約が入らない', means:'施設写真の刷新と紹介ページの制作',
+     result:'検索からの予約獲得を実現',
+     t:'掲載写真が開業時のまま古く、施設の魅力が伝わっていない。検索結果で選ばれる前の段階で候補から外れている',
+     eff:'一枚目の写真と紹介文が改善されることで、同じ掲載でも表示からの予約転換率が上がる'},
+    {v:'駐車場・外構が使いにくい', means:'駐車場および外構の整備',
+     result:'車で来るお客さまの受け入れ拡大を実現',
+     t:'駐車スペースの区画が不明瞭で、複数台で来訪するグループの受け入れに支障が出ている',
+     eff:'車での来訪が前提となる地方の家族・グループ層を確実に受け入れられるようになる'},
+  ]},
+
+  voice: {multi:true, pick:[0,3], items:[
+    {v:'「お風呂の順番待ちが…」', t:'入浴の順番待ちが気になった'},
+    {v:'「トイレが混んだ」', t:'トイレが混雑した'},
+    {v:'「もっと広い所がよかった」', t:'もう少し広い部屋がよかった'},
+    {v:'「ネットが遅かった」', t:'通信環境が遅かった'},
+    {v:'「駐車場が停めにくい」', t:'駐車がしにくかった'},
+    {v:'「また来たい」', t:'また利用したい'},
+    {v:'「大人数でも泊まれて助かった」', t:'大人数で1棟を使えて助かった'},
+    {v:'「朝食がおいしかった」', t:'朝食が良かった'},
+  ]},
+
+  strength: {multi:true, pick:[0,1,3,5], items:[
+    {v:'スーパーホスト', t:'Airbnbスーパーホストの認定を受けている'},
+    {v:'レビュー4.8以上', t:'レビュー総合評価4.8以上を維持している'},
+    {v:'レビュー4.5以上', t:'レビュー総合評価4.5以上を維持している'},
+    {v:'駐車場が多い', t:'複数台分の駐車場を備えている'},
+    {v:'一棟まるごと貸し切れる', t:'1グループ限定で1棟を貸し切れる希少性がある'},
+    {v:'大人数が泊まれる', t:'大人数を1施設で受け入れられる収容力がある'},
+    {v:'朝食が出せる', t:'朝食の提供に対応している'},
+    {v:'長く続けている', t:'開業から複数年にわたり継続して運営している'},
+    {v:'地元のつながりがある', t:'地域の宿泊事業者ネットワークに参画している'},
+    {v:'外国語で対応できる', t:'外国語での受け入れに対応している'},
+  ]},
+
+  target: {multi:true, pick:[0,2], items:[
+    {v:'三世代の家族旅行', t:'三世代での家族旅行'},
+    {v:'法事・親族の集まり', t:'法事や親族の集まり'},
+    {v:'部活・合宿', t:'部活動の合宿や研修'},
+    {v:'外国人観光客', t:'訪日外国人旅行者'},
+    {v:'ワーケーション', t:'仕事を持ち込む長期滞在'},
+    {v:'友人グループ旅行', t:'友人同士のグループ旅行'},
+  ]},
+
+  vendor: {multi:false, pick:0, items:[
+    {v:'㈲若杉建築設計工房', t:'㈲若杉建築設計工房（前回のキッチン増設も同社が施工）'},
+    {v:'決まっている（別の業者）', t:'［業者名］'},
+    {v:'まだ決まっていない', t:'複数社から相見積を取得のうえ決定する'},
+  ]},
+};
+
+const sel = {};
+
+/* ---- チップを描く ---- */
+function build(key){
+  const d = DATA[key], box = $('q_' + key);
+  sel[key] = d.multi ? new Set(d.pick) : d.pick;
+  d.items.forEach((it, i) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'chip'; b.textContent = it.v;
+    b.setAttribute('aria-pressed', d.multi ? sel[key].has(i) : sel[key] === i);
+    b.addEventListener('click', () => {
+      if (d.multi) { sel[key].has(i) ? sel[key].delete(i) : sel[key].add(i); }
+      else { sel[key] = i; }
+      [...box.children].forEach((c, j) =>
+        c.setAttribute('aria-pressed', d.multi ? sel[key].has(j) : sel[key] === j));
+      render();
+    });
+    box.appendChild(b);
+  });
+}
+Object.keys(DATA).forEach(build);
+
+const one  = k => DATA[k].items[sel[k]];
+const many = k => [...sel[k]].sort((a,b)=>a-b).map(i => DATA[k].items[i]);
+const join = a => a.length ? a.join('、') : '';
+
+/* ---- 計算 ---- */
+function calc(){
+  const g = id => +$(id).value || 0;
+  const base=g('n_base'), add=g('n_add'), pax=g('n_pax'), grp=g('n_grp');
+  const margin=g('n_margin')/100, cost=g('n_cost'), cap=1000000, rate=2/3;
+  const unit = base + add*pax;
+  const month = unit*grp;
+  const year = Math.round(month*margin*12);
+  const sub = Math.min(Math.floor(cost*rate), cap);
+  const net = cost - sub;
+  return {base,add,pax,grp,margin,cost,cap,unit,month,year,sub,net,
+          pay: year? cost/year : 0, pay2: year? net/year : 0};
+}
+
+/* ---- 下書きを組む ---- */
+function render(){
+  const c = calc();
+  $('v_base').innerHTML   = c.base.toLocaleString() + '<i>円</i>';
+  $('v_add').innerHTML    = c.add.toLocaleString() + '<i>円</i>';
+  $('v_pax').innerHTML    = c.pax + '<i>名</i>';
+  $('v_grp').innerHTML    = c.grp + '<i>組</i>';
+  $('v_margin').innerHTML = Math.round(c.margin*100) + '<i>%</i>';
+  $('v_cost').innerHTML   = man(c.cost) + '<i>万円</i>';
+
+  $('c_unit').textContent  = yen(c.unit);
+  $('c_month').textContent = yen(c.month);
+  $('c_year').textContent  = yen(c.year);
+  $('c_sub').textContent   = yen(c.sub);
+  $('c_net').textContent   = yen(c.net);
+  $('c_pay').textContent   = c.pay  ? '約' + c.pay.toFixed(1)  + '年' : '–';
+  $('c_pay2').textContent  = c.pay2 ? '約' + c.pay2.toFixed(1) + '年' : '–';
+
+  const F = one('fix');
+  const title = F.means + 'で' + F.result;
+
+  const biz = ($('x_biz').value || '').trim() ||
+    (one('facility').t + '。' + fill('［開業年・所在地をここに］'));
+
+  const voices = many('voice').map(v => v.t);
+  const survey = ($('x_survey').value || '').trim() ||
+    (voices.length
+      ? '当施設の宿泊者アンケートでは、' + voices.map(v => '「' + v + '」' + fill('◯件')).join('、') + 'との回答が得られた'
+      : fill('［ゲストの声をQ3で選んでください］'));
+
+  const st = many('strength').map(s => s.t);
+  const strength = st.length ? join(st) + '。' : fill('［強みをQ4で選んでください］');
+
+  const tg = many('target').map(t => t.t);
+  const target = tg.length ? join(tg) + 'の層' : fill('［ターゲットをQ5で選んでください］');
+
+  const vendorTxt = ($('x_vendor').value || '').trim() || one('vendor').t;
+
+  $('doc').innerHTML =
+`<div class="ttl">【補助事業名】\n${title}</div>
+
+<h4>1. 企業概要</h4>${biz}
+
+<h4>2. 顧客ニーズと市場の動向</h4>2026年、観光庁は自治体による民泊の規制強化を容認する方針を示しており、都市部の不在型民泊は縮小、地方の宿泊施設は相対的に優位となる局面にある（観光庁）。${fill('［都道府県の観光統計をここに］')}
+
+${survey}。
+
+また、${F.t}。
+
+<h4>3. 自社の強み</h4>${strength}
+
+<h4>4. 経営方針・目標と今後のプラン</h4>上記の市場動向とお客さまの声を踏まえ、ターゲットを${target}に定める。当該層は1組あたりの人数が多く客単価が高い一方、上記の課題が満足度とリピートの阻害要因となっている。
+そこで${F.means}を行い、${F.result}することで、この層の受け入れ能力と満足度を高めることを本事業の目標とする。
+
+<h4>5. 補助事業で行う具体的な取組</h4>${F.means}を実施する。施工・導入は${vendorTxt}に依頼する。
+補助対象経費は${yen(c.cost)}、補助率2/3（上限${yen(c.cap)}）により、補助金額は${yen(c.sub)}、自己負担は${yen(c.net)}となる。
+
+<h4>6. 補助事業の効果</h4>${F.eff}。
+これにより、1組あたり${yen(c.base)}＋追加${c.pax}名分（${yen(c.add)}×${c.pax}名）＝${yen(c.unit)}の受注が、月あたり${c.grp}組増加すると見込む（月${yen(c.month)}）。
+当社の粗利率は約${Math.round(c.margin*100)}%であることから、年間の粗利増加額は${yen(c.year)}となる。
+
+投資額${yen(c.cost)}に対し、約${c.pay.toFixed(1)}年で投資を回収できる。補助金${yen(c.sub)}の交付を受けた場合、実質負担${yen(c.net)}に対する回収期間は約${c.pay2.toFixed(1)}年となる。`;
+
+  /* 進み具合 */
+  const done = [
+    sel.facility != null, true,
+    sel.voice.size > 0, sel.strength.size > 0, sel.target.size > 0,
+    sel.vendor !== 2 || ($('x_vendor').value||'').trim() !== '',
+    ($('x_biz').value||'').trim() !== '',
+    ($('x_survey').value||'').trim() !== '',
+  ].filter(Boolean).length;
+  const pct = Math.round(done / 8 * 100);
+  $('g_bar').style.width = pct + '%';
+  $('g_pct').textContent = pct + '%';
+  $('g_txt').textContent =
+    pct >= 100 ? '下書きは完成しています' :
+    pct >= 62  ? 'あとは実数を入れるだけです' :
+                 '選ぶほど、下書きが埋まります';
+}
+
+document.querySelectorAll('input[type=range],textarea').forEach(el =>
+  el.addEventListener('input', render));
+
+$('copy').addEventListener('click', () => {
+  navigator.clipboard.writeText($('doc').innerText).then(() => {
+    $('copy').textContent = 'コピーしました';
+    setTimeout(() => $('copy').textContent = 'コピーする', 1800);
+  });
+});
+
+render();
+
+/* 自己チェック（?test=1） */
+if (location.search.includes('test=1')) {
+  const c = calc(), a = (ok,m) => console.assert(ok, m);
+  a(c.unit === 16400, 'unit ' + c.unit);
+  a(c.month === 82000, 'month ' + c.month);
+  a(c.year === 787200, 'year ' + c.year);
+  a(c.sub === 1000000, '補助は上限で頭打ち ' + c.sub);
+  a(c.net === 500000, 'net ' + c.net);
+  a($('doc').innerText.includes('シャワー室とトイレの増設で大人数グループの待ち時間ゼロを実現'), '事業名が組めていない');
+  a(Object.keys(DATA).every(k => DATA[k].items.every(i => i.t || i.means)), '文章のないの選択肢がある');
+  console.log('self-check done');
+}
+</script>
+</body>
+</html>

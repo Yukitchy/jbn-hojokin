@@ -1,0 +1,68 @@
+/* ===== やさしいレイヤー : style.css の後に読む ===== */
+/* 白×緑のはっきりした配色を、クリーム×やわらかい緑に置き換える。
+   対象は followup / dock-report / form1 の3ページのみ。 */
+:root{
+  --accent:#3F9578;        /* 阿蘇の緑を少し淡く、温かく */
+  --accent-d:#2E7259;
+  --accent-2:#E4855C;      /* 朱をやわらげて、あんずの色に */
+  --gold:#FFE7BE;
+  --ink:#3D3830;           /* 真っ黒にしない（目がやさしい） */
+  --sub:#8A8175;
+  --line:#EEE5D8;          /* 罫線もクリーム寄り */
+  --bg:#FDF8F1;
+  --card:#FFFFFF;
+  --cream:#FBF3E7;
+  --soft-shadow:0 2px 4px rgba(120,95,60,.05), 0 14px 34px rgba(120,95,60,.09);
+}
+body{
+  background:var(--bg);
+  font-size:16.5px;
+  line-height:2.0;              /* 行間をゆったり（高齢のオーナーさん向け） */
+  letter-spacing:.015em;
+}
+h1,h2,h3,h4{letter-spacing:.02em;line-height:1.55}
+
+/* 角をまるく、影をやわらかく、線を薄く */
+.card,.panel,.sheet,.item,.fix,.q,.tips,.calc,.done,.cal .b,.funnel div,
+ul.hw li,.warn,.disc,.legal,a.proto,#doc,input,textarea,.total,.bridge{
+  box-shadow:var(--soft-shadow);
+}
+.card,.panel,.item,.fix,.q,.tips,a.proto{border-radius:24px}
+.sheet{border-radius:30px}
+.calc,.total,.bridge,.disc,.legal,.warn,#doc{border-radius:20px}
+.cal .b,.funnel div,ul.hw li,.done{border-radius:18px}
+.cal .b,.done{border-radius:0 18px 18px 0}
+input,textarea{border-radius:14px;border-color:#E4DACB;background:#FFFDFA}
+.btn{box-shadow:0 2px 5px rgba(140,90,60,.10),0 10px 22px rgba(228,133,92,.26)}
+
+/* 面の塗りをクリームに寄せる */
+.sec:nth-of-type(even),.tint{background:var(--cream)!important}
+.calc,.total,.item .why,.tag{background:var(--cream)}
+th{background:var(--cream)}
+
+/* 見出しまわりの余白を広げて、詰まった感じを消す */
+h2.t{margin-bottom:14px}
+.lead{line-height:2.05}
+.sec{padding:62px 0}
+
+/* いらすとや：やさしさの主役 */
+.ill-row{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.ill-row>div{flex:1 1 300px;min-width:0}
+img.ill{display:block;max-width:100%;height:auto}
+.ill-s{width:clamp(78px,11vw,124px)}
+.ill-m{width:clamp(120px,17vw,196px)}
+.ill-l{width:clamp(150px,22vw,250px)}
+.ill-c{margin:0 auto}
+
+/* スコアバーもまるく */
+.bar{height:12px;border-radius:99px}
+.bar i{border-radius:99px}
+
+/* 診断書のスコア色をやわらかく */
+.item.low .sc,.item.low .bar i{color:#DE8A5E}
+.item.low .bar i{background:#E8A177}
+
+@media(max-width:820px){
+  body{font-size:16px}
+  .sec{padding:50px 0}
+}
