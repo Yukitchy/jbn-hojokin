@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>かすみさんのClaude はじめの一歩｜じぶんで補助金</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=M+PLUS+Rounded+1c:wght@400;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="soft.css">
+<style>
+.top{background:#fff;border-bottom:1px solid var(--line);padding:36px 0 32px}
+.top h1{font-size:clamp(25px,4.2vw,44px);line-height:1.4;margin:12px 0 16px}
+.top p{color:var(--sub);font-size:16.5px;max-width:60ch}
+.sec{padding:56px 0}
+.sec.cream{background:var(--cream)}
+h2.t{font-size:clamp(22px,3.4vw,34px);margin-bottom:12px}
+.lead{color:var(--sub);font-size:16px;margin-bottom:26px;max-width:62ch}
+.card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:24px}
+.card h3{font-size:17.5px;margin-bottom:9px}
+.card p{font-size:15px;color:var(--sub)}
+.grid3{display:grid;gap:16px;grid-template-columns:repeat(3,1fr)}
+.grid2{display:grid;gap:18px;grid-template-columns:1fr 1fr}
+
+/* ---- 宿題カード（AI練習帳と同じ形） ---- */
+.day{background:#fff;border:1px solid var(--line);border-radius:28px;padding:0;
+  margin-bottom:20px;overflow:hidden}
+.day>.hd{display:flex;gap:18px;align-items:center;padding:22px 26px;background:var(--cream)}
+.day>.hd img{width:clamp(56px,8vw,80px);flex:none}
+.day .n{font-family:"Lilita One",sans-serif;color:var(--accent-2);font-size:13px;letter-spacing:.12em}
+.day h3{font-size:clamp(18px,2.4vw,23px);margin:3px 0 4px;line-height:1.5}
+.day .why{font-size:14.5px;color:var(--sub);line-height:1.85}
+.day>.bd{padding:22px 26px}
+.day .plabel{font-size:13px;font-family:"M PLUS Rounded 1c",sans-serif;font-weight:800;
+  color:var(--accent);margin-bottom:9px;display:flex;align-items:center;gap:8px}
+.pbox{position:relative;background:#FFFDFA;border:2px dashed #DFD3C0;border-radius:18px;
+  padding:19px 22px;font-size:15px;line-height:2;white-space:pre-wrap;color:var(--ink)}
+.pbox .blank{background:#FFF0DE;border-bottom:2px solid #E9B871;border-radius:4px;padding:0 5px;font-weight:700}
+.cp{margin-top:13px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.cp button{background:var(--accent);color:#fff;border:none;border-radius:999px;
+  padding:14px 28px;min-height:48px;font-family:"M PLUS Rounded 1c",sans-serif;font-weight:800;font-size:15px;
+  cursor:pointer;box-shadow:0 6px 16px rgba(63,149,120,.28);transition:transform .12s var(--spring)}
+.cp button:hover{transform:translateY(-2px)}
+.cp button.done{background:var(--accent-2)}
+.cp span{font-size:13.5px;color:var(--sub)}
+.tip{margin-top:16px;background:var(--cream);border-radius:16px;padding:14px 18px;font-size:14px;line-height:1.9}
+.tip b{color:var(--accent);font-family:"M PLUS Rounded 1c",sans-serif}
+
+.step{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+  border-radius:20px;padding:18px 22px;margin-bottom:11px}
+.step .b{font-family:"Lilita One",sans-serif;color:#fff;background:var(--accent);
+  width:34px;height:34px;border-radius:50%;display:grid;place-items:center;flex:none;font-size:16px}
+.step p{font-size:15px;line-height:1.9}
+.step p b{font-family:"M PLUS Rounded 1c",sans-serif}
+.warn{background:#FFF0E8;border:1px solid #F0CDB8;border-radius:22px;padding:22px 26px}
+.warn h3{color:#B7663F;font-size:18px;margin-bottom:9px}
+.warn p{color:#8A5A3E;font-size:15px;line-height:1.95}
+.big-idea{background:#fff;border:2px solid var(--accent);border-radius:28px;padding:26px 30px}
+.big-idea h3{font-size:clamp(19px,2.6vw,26px);margin-bottom:10px;line-height:1.5}
+.big-idea p{font-size:16px;line-height:2.05}
+.easy{background:var(--cream);border-radius:20px;padding:18px 22px;margin-top:20px;font-size:15px;line-height:2}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap">
+    <div class="ill-row">
+      <div>
+        <div class="eyebrow">PROTOTYPE 04 ／ じぶんで補助金</div>
+        <h1>かすみさんの<br>Claude はじめの一歩</h1>
+        <p>練習帳は「<b>文章を書いてもらう</b>」でした。<br>
+        ここからは「<b>自分の仕事をおぼえてもらう</b>」段階です。<br>
+        まず登録して、宿題を1つやる。それだけで今日は十分です。</p>
+      </div>
+      <img class="ill ill-l" src="img/businesswoman2_idea.png" alt="">
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="wrap">
+    <div class="ill-row" style="gap:30px">
+      <img class="ill ill-m" src="img/nininsankyaku_business.png" alt="" style="order:2">
+      <div class="big-idea">
+        <h3>いちばん大事な考え方：<br>かすみさんが社長で、AIが社員です。</h3>
+        <p>だから、命令していいんです。ていねいにお願いしなくて大丈夫です。<br>
+        返ってきたものが違ったら「<b>ここ違うよ、こうして</b>」と言い直すだけ。
+        AIは「<b>社長、次から気をつけます</b>」と直してきます。<br>
+        何回言い直しても<b>タダ</b>だし、<b>怒りません</b>。ここが人にお願いするのと決定的に違うところです。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sec cream">
+  <div class="wrap">
+    <h2 class="t">まず、登録します（3分）</h2>
+    <p class="lead">Claude（クロード）はアメリカの Anthropic（アンソロピック）という会社のAIです。Appleとは関係ありません。スマホだけで登録できます。</p>
+
+    <div class="step"><div class="b">1</div><p>スマホで <b>claude.ai</b> を開く（アプリストアで「Claude」と検索してアプリを入れてもOK）</p></div>
+    <div class="step"><div class="b">2</div><p><b>メールアドレスを入れる</b>だけ。クレジットカードは要りません</p></div>
+    <div class="step"><div class="b">3</div><p>届いたメールの数字を入れる → これで登録は終わりです</p></div>
+    <div class="step"><div class="b">4</div><p><b>まずは無料のままで大丈夫です。</b>使ってみて「もっと使いたい」と思ったら有料にすれば十分です</p></div>
+
+    <div class="easy">
+      <b>お金の話（今わかっていること）</b><br>
+      ・<b>無料</b>：まずはここから。宿題4つは無料でも試せます<br>
+      ・<b>Pro：月20ドル（約3,000円）</b>。たくさん使うようになったらこれ<br>
+      ・Max という上のものもありますが、<b>かすみさんには今は要りません</b>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="wrap">
+    <h2 class="t">宿題は4つ。でも、全部やらなくていいです。</h2>
+    <p class="lead">忙しいのは分かっています。<b>①だけでも効きます。</b>むしろ①をやっておくと、②③④が全部ラクになります。
+    1日1つ、思い出した時にどうぞ。</p>
+
+    <div class="day" style="border-color:var(--accent);border-width:2px">
+      <div class="hd" style="background:color-mix(in srgb,var(--accent) 12%,#fff)">
+        <img class="ill" src="img/clipborad_woman.png" alt="">
+        <div><span class="n">宿題 ① ／ まずはこれだけ</span><h3>自分の仕事を、全部しゃべって覚えてもらう</h3>
+        <p class="why">これが土台です。KASUMI-anのことを知らないAIは、当たり障りのないことしか言えません。
+        <b>一度おぼえてもらえば、このあとの相談が全部かみ合うようになります。</b></p></div></div>
+      <div class="bd">
+        <div class="plabel">▼ これをコピーして貼る</div>
+        <div class="pbox" data-p>あなたは、私が熊本市で運営している民泊「KASUMI-an」のスタッフです。
+これから私の仕事を覚えてもらいます。
+
+今日は聞き役に徹してください。
+
+・私の話で足りないところは、あなたから質問してください（一度に1つずつ）
+・むずかしい言葉は使わず、やさしい言葉で話してください
+・最後に「かすみさんの仕事一覧」として、順番に並べてまとめてください
+
+では、私から話します。
+<span class="blank">ここに、毎日やっていることを思いつくまま話す（言い忘れがあっても大丈夫）</span></div>
+        <div class="cp"><button>コピーする</button><span>まとまった文章にしなくて大丈夫です</span></div>
+        <div class="tip"><b>打たなくていいです：</b>入力欄の<b>マイクのボタン</b>を押して、いつもどおり<b>しゃべるだけ</b>で文字になります。
+        「朝起きて予約を確認して、清掃さんに連絡して……」と、独り言のように話してください。
+        <b>順番がバラバラでも、言い直しても、AIが整えます。</b>これがいちばんラクなやり方です。</div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="hd"><img class="ill" src="img/homestay_BandB_minpaku_seiyou.png" alt="">
+        <div><span class="n">宿題 ②</span><h3>宿泊のしおりが、勝手に届くようにする</h3>
+        <p class="why"><b>しおりそのものは、ユウキが作ってお渡しします。</b>
+        かすみさんの担当は「<b>予約が入ったら自動で送られる</b>」ようにする側だけです。
+        毎回手で送っていた分が、まるごと消えます。</p></div></div>
+      <div class="bd">
+        <div class="plabel">▼ これをコピーして貼る</div>
+        <div class="pbox" data-p>民泊の「宿泊のしおり」を、ゲストに自動で届くようにしたいです。
+
+・私はAirbnbとBooking.comで予約を受けています
+・しおりはウェブページのリンク（URL）で用意してあります
+・「予約が入った時」と「チェックインの前日」に、自動でこのリンクが送られるようにしたい
+
+次のことを教えてください。
+1. Airbnbの自動メッセージ機能で設定する手順を、押す場所の順番で
+2. Booking.comで同じことをする手順
+3. 送るメッセージの文面（日本語と英語。しおりのリンクを入れる場所がわかるように）
+
+私はパソコンよりスマホを使います。スマホでできるやり方を優先して教えてください。</div>
+        <div class="cp"><button>コピーする</button><span>しおりのリンクは、ユウキから届いてからで大丈夫です</span></div>
+        <div class="tip"><b>コツ：</b>手順を読んでも分からなかったら「<b>1番から順に、1つずつ聞かせて</b>」と送ってください。
+        画面を1つ進めるごとに次を教えてくれます。</div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="hd"><img class="ill" src="img/dentaku_businesswoman.png" alt="">
+        <div><span class="n">宿題 ③</span><h3>宿泊税を、料金に込みにできないか相談する</h3>
+        <p class="why">現地でお一人200円をいただくのは、取りこぼしもあるし、お互いに気をつかいます。
+        <b>「じゃあ、いくらにすればいいのか」を計算させる</b>のがこの宿題です。</p></div></div>
+      <div class="bd">
+        <div class="plabel">▼ これをコピーして貼る</div>
+        <div class="pbox" data-p>民泊の宿泊税の集め方について相談させてください。
+
+・熊本市で民泊を運営しています
+・いまは宿泊税として、現地でお一人200円を別にいただいています
+・現地でいただくのは取りこぼしもあり、お客さまにも私にも気をつかわせています
+・これを、宿泊料金に最初から含めてしまいたいです
+
+次のことを教えてください。
+1. 料金に含めるなら、いまの料金をいくらにすればよいか（計算の式も見せてください）
+2. 消費税はどう考えればよいか
+3. 掲載ページやお客さまへの説明に、どう書けばよいか（日本語と英語）
+
+いまの料金はこうです。
+<span class="blank">例：1名4,400円、追加1名ごとに4,000円</span></div>
+        <div class="cp"><button>コピーする</button><span>出てきた金額は「案」です。決めるのはかすみさんです</span></div>
+        <div class="tip"><b>気をつけること：</b>制度の細かいところ（税率・届出のきまり）は、<b>AIが自信たっぷりに間違えます</b>。
+        金額の考え方だけAIに出させて、<b>最後は市の窓口で確認</b>してください。</div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="hd"><img class="ill" src="img/monitor_blank_sagyouin_man.png" alt="">
+        <div><span class="n">宿題 ④</span><h3>宿泊者名簿フォームの、困りごとを直す</h3>
+        <p class="why">複数人で泊まっても<b>本人確認の写真が1枚しか登録できない</b>から、前日か当日にしか送れない。
+        毎回バタバタするあの件です。<b>直せる見込みがあります。</b></p></div></div>
+      <div class="bd">
+        <div class="plabel">▼ これをコピーして貼る</div>
+        <div class="pbox" data-p>Googleフォームの困りごとを直したいです。
+
+・民泊の宿泊者名簿を、Googleフォームで集めています
+・本人確認の書類（パスポートなど）の写真をアップロードしてもらっています
+・困っているのは、複数人で泊まる時でも写真が1枚しか登録できないことです
+・そのため全員ぶんを集めようとすると前日か当日にしか送れず、毎回バタバタします
+
+次のことを教えてください。
+1. 1回の回答で、宿泊者全員ぶんの写真を集める方法（フォームのどこをどう変えるか、押す順番で）
+2. Googleフォームでは無理な場合、代わりに使える方法
+3. 早めに送っても大丈夫な形にするには、どうすればよいか
+
+私はスマホ中心で、パソコンはあまり使いません。むずかしい言葉は使わないで説明してください。</div>
+        <div class="cp"><button>コピーする</button><span>いまのフォームの画面を写真に撮って一緒に送ると、もっと正確になります</span></div>
+        <div class="tip"><b>コツ：</b>Claudeは<b>写真を見て答えられます</b>。フォームの編集画面をスクショして貼り付ければ、
+        「その画面のどこを押すか」まで教えてくれます。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sec cream">
+  <div class="wrap">
+    <div class="ill-row">
+      <img class="ill ill-m" src="img/akusyu_hand_naked.png" alt="">
+      <div>
+        <h2 class="t">うまくいかない時の、たった1つのコツ</h2>
+        <p class="lead" style="margin-bottom:0">
+          <b>一発で完璧なものを出そうとしないこと。</b>これだけです。<br><br>
+          返ってきたものが違ったら、「<b>もっと短く</b>」「<b>そこは違う、こうして</b>」「<b>別の案を3つ</b>」と、
+          思ったことをそのまま続けて言うだけで直ります。<br><br>
+          言い直すのは失敗ではありません。<b>その言い直しが、そのままAIへの教育</b>になっています。
+          社長が指示を出して、社員が「次から気をつけます」と直す。それを何回でもタダでやれる、というだけの話です。</p>
+      </div>
+    </div>
+
+    <div class="warn" style="margin-top:26px">
+      <h3>これだけは貼らないでください</h3>
+      <p>ゲストの<b>本名・電話番号・メールアドレス・予約番号・クレジットカード情報・パスポートの写真</b>。<br>
+      ご自身の売上・料金・物件の情報は、むしろ<b>入れた方が良い答えが返ってきます</b>。</p>
+    </div>
+  </div>
+</div>
+
+<div class="sec" style="text-align:center">
+  <div class="wrap">
+    <img class="ill ill-m ill-c" src="img/whiteboard_up_woman2.png" alt="" style="margin-bottom:18px">
+    <h2 class="t">今日は、登録と①だけで合格です。</h2>
+    <p class="lead" style="margin:0 auto 24px;max-width:48ch">
+      地震の後片付けの合間で構いません。①をしゃべって終わらせておけば、
+      次に困った時に「うちの事情を知っているAI」に相談できる状態になっています。
+      ②③④は、その時に開けば大丈夫です。</p>
+    <a class="btn" href="ai-start.html">AI練習帳を見る</a>
+    <a class="btn ghost" href="followup.html" style="margin-left:10px">打ち合わせ資料にもどる</a>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.day .cp button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const box = btn.closest('.bd').querySelector('[data-p]');
+    navigator.clipboard.writeText(box.innerText).then(() => {
+      btn.textContent = 'コピーしました！';
+      btn.classList.add('done');
+      setTimeout(() => { btn.textContent = 'コピーする'; btn.classList.remove('done'); }, 2000);
+    });
+  });
+});
+
+if (location.search.includes('test=1')) {
+  const boxes = document.querySelectorAll('[data-p]');
+  const btns  = document.querySelectorAll('.day .cp button');
+  console.assert(boxes.length === 4, 'プロンプトは4つのはず: ' + boxes.length);
+  console.assert(btns.length === 4, 'ボタンは4つのはず: ' + btns.length);
+  boxes.forEach((b, i) => console.assert(b.innerText.length > 80, (i+1) + '番のプロンプトが短すぎる'));
+  console.log('self-check done');
+}
+</script>
+</body>
+</html>
